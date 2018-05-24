@@ -94,14 +94,14 @@ let moveNumber = 0
 function moveCounter(){
     moveNumber++
     $('.moves').html(moveNumber);
+    //star rating
+    if (moveNumber > 8 && moveNumber < 12) {
+        $('.stars li').first().remove();
+    } else if (moveNumber >= 16) {
+        $('.stars li').first().remove();
+    }
 }
 
-/*
-function moveCount(){
-    $('.moves').html(function(){
-    $    moveNumber++;
-    });
 
-}
-*/
+
 
