@@ -56,10 +56,11 @@ suffledDeck();
 
 
 $(document).on('click', '.card:not(.unclickable)', (function() {
-    $(this).addClass('show open');  //flips card when clicked
-    if (openCards.length < 3) {
-        openCards.push(this); //add card to openCards array
+    $(this).addClass('show open'); //flips card when clicked
+    openCards.push(this); //add card to openCards array
+    if (openCards.length == 2) {
         matching(); //run function to match cards
+        moveCounter(); //call function to count a move after two cards are selected
         }
     }
 ));
@@ -88,3 +89,19 @@ console.log(openCards);
 console.log(matchedCards);
 
 //move counter*/
+let moveNumber = 0
+
+function moveCounter(){
+    moveNumber++
+    $('.moves').html(moveNumber);
+}
+
+/*
+function moveCount(){
+    $('.moves').html(function(){
+    $    moveNumber++;
+    });
+
+}
+*/
+
