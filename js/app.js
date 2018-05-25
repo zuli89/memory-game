@@ -89,9 +89,10 @@ console.log(openCards);
 console.log(matchedCards);
 
 //move counter*/
-let moveNumber = 0
+
 
 function moveCounter(){
+    let moveNumber = 0
     moveNumber++
     $('.moves').html(moveNumber);
     //star rating
@@ -102,6 +103,22 @@ function moveCounter(){
     }
 }
 
+//timer
 
+$('.deck').on('click',function(){ //trigers timer on click (may be better to set it to starts after two cards are clicked)
+    let startTime = new Date;
+    setInterval(function() {
+        $('.timer').html(function(){
+            count = (new Date - startTime)/1000;
+            secs = String(Math.round(count) % 60);
+            mins = String(Math.floor(count / 60));
+            M = mins.length < 2 ? '0' + mins : mins;
+            S = secs.length < 2 ? '0' + secs : secs;   
+            return (M + ":" + S);
+        }
+    );}, 1000);
+
+    }
+);
 
 

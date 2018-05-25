@@ -128,3 +128,8 @@ img{
     float: right;
     cursor: pointer;
 }
+.score-panel .timer{
+    display: inline-block;
+    width: 120px;
+    text-align:center; 
+}
