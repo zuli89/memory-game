@@ -17,8 +17,9 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
+    background: #ffffff url('../img/cr.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Coda', cursive;
+    background-size: cover;
 }
 
 .container {
@@ -40,7 +41,7 @@ h1 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    background: #ffffff url('../img/parchment.jpg');
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -50,7 +51,6 @@ h1 {
     align-items: center;
     margin: 0 0 3em;
 }
-
 
 .deck .card {
     height: 125px;

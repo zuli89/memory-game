@@ -30,14 +30,16 @@ function shuffle(array) {
 
 
 //shuffle cards and add shuffled cards to deck//
-function suffledDeck() {
+
+function shuffledDeck() {
     shuffle(cardList); 
     for (i = 0; i <= cardList.length; i++) {
         newcard = cardList[i];
     $('.deck').append(newcard);
     }
 }
-suffledDeck();
+
+shuffledDeck(); 
 
 
 /*
@@ -60,7 +62,7 @@ $(document).on('click', '.card:not(.unclickable)', (function() {
     openCards.push(this); //add card to openCards array
     if (openCards.length == 2) {
         matching(); //run function to match cards
-        moveCounter(); //call function to count a move after two cards are selected
+        moveCount(); //call function to count a move after two cards are selected
         }
     }
 ));
@@ -85,40 +87,66 @@ function noMatch() {
     
 }
 
-console.log(openCards);
-console.log(matchedCards);
-
 //move counter*/
 
+let moveNumber = 0;
 
-function moveCounter(){
-    let moveNumber = 0
-    moveNumber++
+function moveCount(){
+    moveNumber++;
     $('.moves').html(moveNumber);
     //star rating
     if (moveNumber > 8 && moveNumber < 12) {
-        $('.stars li').first().remove();
+        $('.stars li:eq(1)').hide(); 
     } else if (moveNumber >= 16) {
-        $('.stars li').first().remove();
+        $('.stars li:eq(2)').hide(); 
     }
 }
 
 //timer
 
-$('.deck').on('click',function(){ //trigers timer on click (may be better to set it to starts after two cards are clicked)
-    let startTime = new Date;
-    setInterval(function() {
-        $('.timer').html(function(){
-            count = (new Date - startTime)/1000;
-            secs = String(Math.round(count) % 60);
-            mins = String(Math.floor(count / 60));
-            M = mins.length < 2 ? '0' + mins : mins;
-            S = secs.length < 2 ? '0' + secs : secs;   
-            return (M + ":" + S);
+function timer(){
+    card.on('click', (function(){ //trigers timer on
+        let startTime = new Date;
+        counter = setInterval(function() {
+            $('.timer').html(function(){
+                count = (new Date - startTime)/1000; //compute time elapsed
+                secs = String(Math.round(count) % 60); //round time and restart when one minute has elapsed
+                mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
+                M = mins.length < 2 ? '0' + mins : mins; 
+                S = secs.length < 2 ? '0' + secs : secs;   
+                return (M + ":" + S);
+            }
+        );}, 1000);
+        card.off('click'); //removes event listener so time doesn't restart every time a card is clicked
         }
-    );}, 1000);
+    ));
+}
 
-    }
-);
+timer();
+
+//reset game
+$('.restart').click(restartGame);
+
+
+function restartGame(){
+//flip cards
+    card.removeClass('match open show');
+    matchedCards =[];
+    openCards =[];
+//shuffle
+    shuffledDeck();
+//reset timer
+    $('.timer').html("00:00");
+    clearInterval(counter);
+    timer();
+    //reset moves
+    moveNumber = 0;
+    $('.moves').html(moveNumber);
+    //reset stars
+    $('.stars li').show();
+
+}
+
+
 
 
