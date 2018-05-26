@@ -18,8 +18,13 @@ body {
 
 body {
     background: #ffffff url('../img/cr.jpg'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+    font-family: 'Henny Penny', cursive;
     background-size: cover;
+    font-size: 1.1em;
+    color: white;
+    text-shadow: 1.5px 1px #8e9196;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 .container {
@@ -30,9 +35,13 @@ body {
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Mountains of Christmas', sans-serif;
     font-weight: 300;
+    font-size: 3.5em;
+    color: white;
+    text-align: center;
 }
+
 
 /*
  * Styles for the deck of cards
@@ -54,7 +63,7 @@ h1 {
 
 .deck .card {
     height: 125px;
-    width: 125px;
+    width: 21%;
     background: #2e3d49;
     font-size: 0;
     color: #ffffff;
@@ -67,8 +76,7 @@ h1 {
 }
 
 img{
-    width:100px;
-    height: 90px;
+    width: 70%;
     display:block;
     margin: 0 auto;
 }
@@ -81,26 +89,25 @@ img{
     transform: rotateY(0);
     background: #ffffff;
     cursor: default;
+
 }
 
 .deck .card.show img{
     font-size: 33px;
     visibility: visible;
+
 }
 
 .deck .card.match{
     cursor: default;
     background: #e8e7d5;
     font-size: 33px;
+    border: 3px solid #820505;
 }
 
 .deck .card.match img{
     visibility: visible;
 }
-
-
-
-
 
 /*
  * Styles for the Score Panel
@@ -132,4 +139,55 @@ img{
     display: inline-block;
     width: 120px;
     text-align:center; 
+}
+
+.modal.closed{
+    display: none; 
+}
+
+.modal.shown {
+    display: inline-block;
+    z-index: 1;
+    position: fixed;
+    background-color: #fefefe;
+}
+
+/*
+ * Responsive design
+ */
+
+@media screen and (max-width: 675px){
+    .deck{
+        width: 90%;
+    }
+}
+
+
+@media screen and (max-width: 575px){
+    .deck{
+        width: 90%;
+    }
+    .deck .card{
+        height: 110px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .deck{
+        width: 95%;
+        min-height: 500px;
+    }
+    .deck .card{
+        height: 100px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    .deck{
+        width: 95%;
+        min-height:450px;
+    }
+    .deck .card{
+        height: 80px;
+    }
 }

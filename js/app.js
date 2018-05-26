@@ -58,7 +58,7 @@ shuffledDeck();
 
 
 $(document).on('click', '.card:not(.unclickable)', (function() {
-    $(this).addClass('show open'); //flips card when clicked
+    $(this).addClass('show open unclickable animated flipInY'); //flips card when clicked, avoids being able to double click
     openCards.push(this); //add card to openCards array
     if (openCards.length == 2) {
         matching(); //run function to match cards
@@ -69,21 +69,21 @@ $(document).on('click', '.card:not(.unclickable)', (function() {
 
 function matching() {
     if (openCards[0].children[0].className === openCards[1].children[0].className) {
-        $(openCards[0]).removeClass('show open').addClass('match');
-        $(openCards[1]).removeClass('show open').addClass('match');
+        $(openCards[0]).removeClass('show open flipInY').addClass('match animated pulse');
+        $(openCards[1]).removeClass('show open flipInY').addClass('match animated pulse');
         matchedCards.push(openCards[0], openCards[1]); //add matched cards to an array
         openCards = [];
-        $(matchedCards).off('click'); //remove matched card from game so they cannot be clicked
+        //$(matchedCards).off('click'); //remove matched card from game so they cannot be clicked
     } else noMatch();
 }
 
 function noMatch() {
     card.addClass('unclickable'); //add class to temprarily disable event listeners on clicks
     setTimeout(function(){
-        $(openCards).removeClass('show open');
+        $(openCards).removeClass('show open flipInY');
         card.removeClass('unclickable'); //remove class to enable event listeners on c licks
         openCards = [];
-    }, 1500);  
+    }, 1300);  
     
 }
 
@@ -130,7 +130,7 @@ $('.restart').click(restartGame);
 
 function restartGame(){
 //flip cards
-    card.removeClass('match open show');
+    card.removeClass('match open show pulse');
     matchedCards =[];
     openCards =[];
 //shuffle
@@ -147,6 +147,5 @@ function restartGame(){
 
 }
 
-
-
+//Pop-up - modal
 
