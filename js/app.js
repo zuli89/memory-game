@@ -5,6 +5,7 @@
 let card = $(".card");
 let cardList = [...card];
 
+
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -31,6 +32,8 @@ function shuffle(array) {
 
 //shuffle cards and add shuffled cards to deck//
 
+window.onload = shuffledDeck(), timer(); 
+
 function shuffledDeck() {
     shuffle(cardList); 
     for (i = 0; i <= cardList.length; i++) {
@@ -38,8 +41,6 @@ function shuffledDeck() {
     $('.deck').append(newcard);
     }
 }
-
-shuffledDeck(); 
 
 
 /*
@@ -102,32 +103,33 @@ function moveCount(){
     } else if (moveNumber >= 16) {
         $('.stars li:eq(2)').hide(); 
     }
-    if (moveNumber == 1){   //start timer after first move is made
-        timer();
-    }
 }
 
 //timer
-
 function timer(){
-    startTime = new Date;
-    counter = setInterval(function() {
-        $('.timer').html(function(){
-            count = (new Date - startTime)/1000; //compute time elapsed since first move
-            secs = String(Math.round(count) % 60); //round time and restart when one minute has elapsed
-            mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
-            M = mins.length < 2 ? '0' + mins : mins; 
-            S = secs.length < 2 ? '0' + secs : secs;   
-            return (M + ":" + S);
+    card.on('click', (function(){ //trigers timer on
+        let startTime = new Date;
+        counter = setInterval(function() {
+            $('.timer').html(function(){
+                count = (new Date - startTime)/1000; //compute time elapsed
+                secs = String(Math.round(count) % 60); //round time and restart when one minute has elapsed
+                mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
+                M = mins.length < 2 ? '0' + mins : mins; 
+                S = secs.length < 2 ? '0' + secs : secs;   
+                return (M + ":" + S);
+            }
+        );}, 1000);
+        card.off('click'); //removes event listener so time doesn't restart every time a card is clicked
         }
-    );}, 1000);
+    ));
 }
 
+
 //reset game
-$('.restart').on('click', function(){
+$('.restart').on('click', (function(){
     $('.fa-repeat').addClass('animated rotateIn');
     restartGame();
-});
+}));
 
 function restartGame(){
 //flip cards
@@ -139,6 +141,7 @@ function restartGame(){
 //reset timer
     $('.timer').html("00:00");
     clearInterval(counter);
+    timer();
     //reset moves
     moveNumber = 0;
     $('.moves').html(moveNumber);
@@ -148,13 +151,28 @@ function restartGame(){
 }
 
 //Pop-up - modal
+$('.modal').hide();
 
 function youWon(){
-    $('.modal').removeClass('closed').addClass('open');
+    setTimeout(function(){
+        $('.modal').show();
+    }, 1000);
     //obtain moves
     $('.totalMove').html(moveNumber);
     //obtain stars
-    $('.finalStar').html($('.stars').html());
+    totalStars = $('.stars').html()
+    $('.starRating').html(totalStars);
+    //obtain final time
+    clearInterval(counter);
+    getTime = $('.timer').html();
+    $('.finalTime').html(getTime);
+    //restart game
+    $('#play').on('click', (function(){
+        $('.modal').hide();
+        restartGame();
+    }));
+    //close window
+    $('#close-window').on('click', (function() {
+        $('.modal').hide();
+    }));  
 }
-
-

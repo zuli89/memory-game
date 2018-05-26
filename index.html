@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
             <h1 class="font-effect-3d-float">Wizard's Matching Game</h1>
-            <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Henny+Penny&effect=3d-float">
+            <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Princess+Sofia|Mountains+of+Christmas|Henny+Penny&effect=3d-float">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet"
     href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
@@ -27,7 +27,7 @@
 
         	<span class="moves">0</span> Moves
 
-            <div class="timer">--:--</div>
+            <div class="timer">00:00</div>
 
             <div class="restart">
         		<i class="fa fa-repeat"></i>
@@ -86,15 +86,16 @@
         </ul>
     
     
-    <div class="modal open">
+    <div class ="modal">
         <div class="modal-content">
-            <h2>Yay!</h2>
-            <p>You have won!</p>
+            <img class = "shield" src= "img/shield500.png">
+            <h2>Congratulations!</h2>
+            <p>You have completed the game</p>
             <p> Total moves: <span class = "totalMove"> </span></p>
             <p>Total Time <span class="finalTime"></span></p>
-            <p>Rating: <span class="finalStar"></span> </p>
-          </div>
+            <p>Rating: <span class="starRating"></span> </p>
           <button id="play">Play Again</button>
+          <button id="close-window">Close</button>
         </div>
 
     </div>
