@@ -5,7 +5,7 @@
     <title>Harry Potter Matching Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-            <h1 class="font-effect-3d-float">Matching Game</h1>
+            <h1 class="font-effect-3d-float">Wizard's Matching Game</h1>
             <link rel="stylesheet prefetch" href="https://fonts.googleapis.com/css?family=Mountains+of+Christmas|Henny+Penny&effect=3d-float">
     <link rel="stylesheet" href="css/app.css">
     <link rel="stylesheet"
@@ -20,9 +20,9 @@
 
         <section class="score-panel">
         	<ul class="stars">
-        		<li><i class="fa fa-star"></i></li>
-        		<li><i class="fa fa-star"></i></li>
-                <li><i class="fa fa-star"></i></li>
+        		<li><i class="fa fa-bolt"></i></li>
+        		<li><i class="fa fa-bolt"></i></li>
+                <li><i class="fa fa-bolt"></i></li>
         	</ul>
 
         	<span class="moves">0</span> Moves
@@ -36,10 +36,10 @@
 
         <ul class="deck">
             <li class="card">
-                <i class="death-mark"> <img src = "img/death500.png"> </i>
+                <i class="cauldron"> <img src = "img/cauldron.png"> </i>
             </li>
             <li class="card">
-                <i class="dementor"> <img src = "img/dementor500.png"> </i>
+                <i class="gryff"> <img src = "img/gryff.png"> </i>
             </li>
             <li class="card">
                 <i class="hollows"> <img src = "img/dh500.png"> </i>
@@ -48,28 +48,28 @@
                 <i class="snitch"> <img src = "img/snitch500.png"> </i>
             </li>
             <li class="card">
-                <i class="goblet"> <img src = "img/goblet500.png"> </i>
+                <i class="huff"> <img src = "img/huff.png"> </i>
             </li>
             <li class="card">
                 <i class="hollows"> <img src = "img/dh500.png"> </i>
             </li>
             <li class="card">
-                <i class="harry"> <img src = "img/harry500.png"> </i>
+                <i class="slyth"> <img src = "img/slyth.png"> </i>
             </li>
             <li class="card">
                 <i class="hat"> <img src = "img/hat500.png"> </i>
             </li>
             <li class="card">
-                <i class="death-mark"> <img src = "img/death500.png"> </i>
+                <i class="cauldron"> <img src = "img/cauldron.png"> </i>
             </li>
             <li class="card">
-                <i class="shield"> <img src = "img/shield500.png"> </i>
+                <i class="raven"> <img src = "img/raven.png"> </i>
             </li>
             <li class="card">
-                <i class="harry"> <img src = "img/harry500.png"> </i>
+                <i class="slyth"> <img src = "img/slyth.png"> </i>
             </li>
             <li class="card">
-                <i class="shield"> <img src = "img/shield500.png"> </i>
+                <i class="raven"> <img src = "img/raven.png"> </i>
             </li>
             <li class="card">
                 <i class="snitch"> <img src = "img/snitch500.png"> </i>
@@ -78,25 +78,26 @@
                 <i class="hat"> <img src = "img/hat500.png"> </i>
             </li>
             <li class="card">
-                <i class="dementor"> <img src = "img/dementor500.png"> </i>
+                <i class="gryff"> <img src = "img/gryff.png"> </i>
             </li>
             <li class="card">
-                <i class="goblet"> <img src = "img/goblet500.png"> </i>
+                <i class="huff"> <img src = "img/huff.png"> </i> 
             </li>
         </ul>
-    </div>
-
-    <section class="modal closed">
+    
+    
+    <div class="modal open">
         <div class="modal-content">
             <h2>Yay!</h2>
             <p>You have won!</p>
-            <p> Total moves: <span class = "totalMove"></span></p>
+            <p> Total moves: <span class = "totalMove"> </span></p>
             <p>Total Time <span class="finalTime"></span></p>
             <p>Rating: <span class="finalStar"></span> </p>
           </div>
           <button id="play">Play Again</button>
-    </section>
+        </div>
 
+    </div>
     <script src="js/app.js"></script>
 </body>
 </html>

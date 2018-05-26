@@ -64,9 +64,11 @@ h1 {
 .deck .card {
     height: 125px;
     width: 21%;
-    background: #2e3d49;
+    background: url(../img/hogwarts.png) no-repeat center;
+    background-size: 70%;
+    background-color: #2e3d49;
     font-size: 0;
-    color: #ffffff;
+   /* color: #ffffff;*/
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -76,7 +78,7 @@ h1 {
 }
 
 img{
-    width: 70%;
+    width: 100%;
     display:block;
     margin: 0 auto;
 }
@@ -141,17 +143,29 @@ img{
     text-align:center; 
 }
 
+/*
+*modal
+*/
+
 .modal.closed{
     display: none; 
 }
 
-.modal.shown {
-    display: inline-block;
-    z-index: 1;
-    position: fixed;
-    background-color: #fefefe;
+.modal .open {
+	position: fixed;
+	top: 50%;
+    bottom: 50%;
+    transform: translate(-50%, -50%);
+	background: rgba(0, 0, 0, 0.7);
 }
 
+.modal-content {
+    background-color: rgba(0, 0, 0);
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
 /*
  * Responsive design
  */
