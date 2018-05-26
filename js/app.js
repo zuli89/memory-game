@@ -32,7 +32,7 @@ function shuffle(array) {
 
 //shuffle cards and add shuffled cards to deck//
 
-window.onload = shuffledDeck(), timer(); 
+window.onload = shuffledDeck(), timer();
 
 function shuffledDeck() {
     shuffle(cardList); 
@@ -61,7 +61,7 @@ function shuffledDeck() {
 $(document).on('click', '.card:not(.unclickable)', (function() {
     $(this).addClass('show open unclickable animated flipInY'); //flips card when clicked, avoids being able to double click
     openCards.push(this); //add card to openCards array
-    if (openCards.length == 2) {
+        if (openCards.length == 2) {
         moveCount();//call function to count a move after two cards are selected
         matching(); //run function to match cards
         }
@@ -74,9 +74,8 @@ function matching() {
         $(openCards[1]).removeClass('show open flipInY').addClass('match animated pulse');
         matchedCards.push(openCards[0], openCards[1]); //add matched cards to an array
         openCards = [];
-        //$(matchedCards).off('click'); //remove matched card from game so they cannot be clicked
     } else noMatch();
-    if (matchedCards.length == 2){
+    if (matchedCards.length == 16){
         youWon();
     }
 }
@@ -128,17 +127,20 @@ function timer(){
 //reset game
 $('.restart').on('click', (function(){
     $('.fa-repeat').addClass('animated rotateIn');
+    setTimeout(function(){
+        $('.fa-repeat').removeClass('animated rotateIn');
+    },1000);
     restartGame();
 }));
 
 function restartGame(){
-//flip cards
-    card.removeClass('match open show animated pulse');
+    //flip cards
+    card.removeClass('match open show pulse flipInY unclickable');
     matchedCards =[];
     openCards =[];
-//shuffle
+    //shuffle
     shuffledDeck();
-//reset timer
+    //reset timer
     $('.timer').html("00:00");
     clearInterval(counter);
     timer();
@@ -147,7 +149,6 @@ function restartGame(){
     $('.moves').html(moveNumber);
     //reset stars
     $('.stars li').show();
-
 }
 
 //Pop-up - modal
