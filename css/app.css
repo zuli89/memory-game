@@ -42,6 +42,16 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: rgb(126, 9, 9);
+    text-shadow: 1.5px 1px #62656b;
+}
+
+#banner{
+    width: 45%;
+}
 
 /*
  * Styles for the deck of cards
@@ -64,9 +74,8 @@ h1 {
 .deck .card {
     height: 125px;
     width: 21%;
-    background: url(../img/hogwarts.png) no-repeat center;
-    background-size: 70%;
-    background-color: #2e3d49;
+    background: url(../img/hogwarts.png) no-repeat center, url(../img/card-bg.png) no-repeat center;
+    background-size: 80%, 100%;
     font-size: 0;
    /* color: #ffffff;*/
     border-radius: 8px;
@@ -81,6 +90,7 @@ img{
     width: 100%;
     display:block;
     margin: 0 auto;
+    border-radius: 7px;
 }
 
 .deck .card img{
@@ -102,9 +112,9 @@ img{
 
 .deck .card.match{
     cursor: default;
-    background: #e8e7d5;
+    background: #841313;
     font-size: 33px;
-    border: 3px solid #820505;
+    border: 3px solid #841313;
 }
 
 .deck .card.match img{
@@ -117,9 +127,10 @@ img{
 
 .score-panel {
     text-align: left;
-    width: 345px;
+    width: 500px;
     margin-bottom: 10px;
-    font-size:18px;}
+    font-size:22px;
+}
 
 .score-panel .stars {
     margin: 0;
@@ -140,7 +151,7 @@ img{
 }
 .score-panel .timer{
     display: inline-block;
-    width: 120px;
+    width: 200px;
     text-align:center; 
 }
 
@@ -148,7 +159,7 @@ img{
 *modal
 */
 .shield {
-    width:12%;
+    width:10%;
 }
 
 .modal {
@@ -179,6 +190,10 @@ img{
     text-shadow: none;
    
 }
+
+.modal-content p span{
+    color: #841313;
+} 
 
 .starRating {
     list-style: none;
