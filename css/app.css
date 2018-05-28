@@ -17,7 +17,7 @@ body {
 }
 
 body {
-    background: #ffffff url('../img/cr.jpg'); /* Background pattern from Subtle Patterns */
+    background: url('../img/cr.jpg'); /* Background pattern from Subtle Patterns */
     font-family: 'Henny Penny', cursive;
     background-size: cover;
     font-size: 1.1em;
@@ -49,8 +49,8 @@ h2 {
     text-shadow: 1.5px 1px #62656b;
 }
 
-#banner{
-    width: 45%;
+#banner {
+    width: 600px;
 }
 
 /*
@@ -60,7 +60,7 @@ h2 {
 .deck {
     width: 660px;
     min-height: 680px;
-    background: #ffffff url('../img/parchment.jpg');
+    background: #ffffff url('../img/Parchment.jpg');
     padding: 32px;
     border-radius: 10px;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
@@ -73,7 +73,7 @@ h2 {
 
 .deck .card {
     height: 125px;
-    width: 21%;
+    width: 125px;
     background: url(../img/hogwarts.png) no-repeat center, url(../img/card-bg.png) no-repeat center;
     background-size: 80%, 100%;
     font-size: 0;
@@ -86,18 +86,18 @@ h2 {
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
-img{
+img {
     width: 100%;
     display:block;
     margin: 0 auto;
     border-radius: 7px;
 }
 
-.deck .card img{
+.deck .card img {
     visibility: hidden;
 }
 
-.deck .card.open{
+.deck .card.open {
     transform: rotateY(0);
     background: #ffffff;
     cursor: default;
@@ -168,9 +168,8 @@ img{
     left: 50%;
     transform: translate(-50%, -50%);
     min-width: 40%;
-    max-width: 65%;
+    max-width: 80%;
     height: 90%;
-   
     /*background properties*/
     background: url(../img/light-parchment.png);
     background-size: contain;
@@ -191,7 +190,7 @@ img{
    
 }
 
-.modal-content p span{
+.modal-content p span {
     color: #841313;
 } 
 
@@ -200,7 +199,7 @@ img{
     display: inline-flex;
 }
 
-button{
+button {
     background-color: #841313;
     font: 18px 'Henny Penny';
     color: #ffdd4c;
@@ -210,7 +209,7 @@ button{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-button:hover{
+button:hover {
     background-color: #5e0606;
     cursor: pointer;
 }
@@ -222,37 +221,100 @@ button:focus {outline:0;}
  */
 
 @media screen and (max-width: 675px){
-    .deck{
+    .deck {
         width: 90%;
     }
+
+    #banner {
+        width: 400px;
+    }
+
+    .deck .card {
+        height: 110px;
+        width: 110px;
+    }
+
 }
 
 
 @media screen and (max-width: 575px){
-    .deck{
+    .deck {
         width: 90%;
+        min-height: 515px;
     }
-    .deck .card{
-        height: 110px;
-    }
-}
-
-@media screen and (max-width: 500px){
-    .deck{
-        width: 95%;
-        min-height: 500px;
-    }
-    .deck .card{
+    .deck .card {
         height: 100px;
+        width: 100px;
+    }
+    .score-panel {
+        font-size: 18px;
     }
 }
 
-@media screen and (max-width: 425px){
+@media screen and (max-width: 520px){
     .deck{
         width: 95%;
-        min-height:450px;
+    }
+    .score-panel {
+        width: 370px;
+    }
+    .deck .card {
+        height: 90px;
+        width: 90px;
+    }
+
+}
+
+@media screen and (max-width: 455px){
+    .deck{
+        width: 95%;
+        min-height: 450px;
     }
     .deck .card{
         height: 80px;
+        width: 80px;
+    }
+    .score-panel{
+        width: 300px;
+        font-size: 15px;
+    }
+    .score-panel .timer{
+
+        width: 125px;
     }
 }
+
+@media screen and (max-width: 415px){
+    #banner{
+        width: 300px;
+    }
+    .deck{
+        width: 90%;
+        min-height: 400px;
+        padding: 20px;
+    }
+    .deck .card{
+        height: 70px;
+        width: 70px;
+    }
+}
+
+@media screen and (max-width: 370px){
+    #banner {
+        width: 250px;
+    }
+    .deck {
+        min-height: 350px;
+        padding: 5px;
+    }
+    .deck .card {
+        height: 65px;
+        width: 65px;
+    }
+}
+
+/* Modal responsive*/
+
+
+
+

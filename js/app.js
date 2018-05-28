@@ -156,7 +156,7 @@ $('.modal').hide();
 
 function youWon(){
     setTimeout(function(){
-        $('.modal').show();
+    $('.modal').show();
     }, 1000);
     //obtain moves
     $('.totalMove').html(moveNumber);
