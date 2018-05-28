@@ -58,11 +58,12 @@ window.onload = shuffledDeck(), timer();
 
 
 $(document).on('click', '.card:not(.unclickable)', (function() {
-    $(this).addClass('show open unclickable animated flipInY'); //flips card when clicked, avoids being able to double click
+    //flips card when clicked, avoids being able to double click on the same card on same turn
+    $(this).addClass('show open unclickable animated flipInY'); 
     openCards.push(this); //add card to openCards array
         if (openCards.length == 2) {
         moveCount();//call function to count a move after two cards are selected
-        matching(); //run function to match cards
+        matching(); //run function to  see if cards match
         }
     }
 ));
@@ -74,22 +75,24 @@ function matching() {
         matchedCards.push(openCards[0], openCards[1]); //add matched cards to an array
         openCards = [];
     } else noMatch();
-    if (matchedCards.length == 16) {
+    if (matchedCards.length == 16) { //winning the game when all cards are matched
         youWon();
     }
 }
 
+//if cards don't match
 function noMatch() {
     card.addClass('unclickable'); //add class to temprarily disable event listeners on clicks
     setTimeout(function(){
         $(openCards).removeClass('show open animated flipInY');
-        card.removeClass('unclickable'); //remove class to enable event listeners on c licks
-        openCards = [];
+        card.removeClass('unclickable'); //remove class to enable event listener on clicks
+        openCards = []; 
     }, 1300);  
     
 }
 
-//move counter*/
+//move counter
+
 let moveNumber = 0;
 
 function moveCount() {
@@ -104,12 +107,12 @@ function moveCount() {
 }
 
 //timer
-function timer(){
+function timer() {
     card.on('click', (function() { //trigers timer on click
-        let startTime = new Date;
+        let startTime = new Date;  //gets time and date of when first card is clicked
         counter = setInterval(function() {
             $('.timer').html(function() {
-                count = (new Date - startTime)/1000; //compute time elapsed
+                count = (new Date - startTime)/1000; //compute time elapsed since first card click
                 secs = String(Math.round(count) % 60); //round time and restart when one minute has elapsed
                 mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
                 M = mins.length < 2 ? '0' + mins : mins; 
@@ -124,9 +127,9 @@ function timer(){
 
 //reset game
 $('.restart').on('click', (function(){
-    $('.fa-repeat').addClass('animated rotateIn');
+    $('.fa-repeat').addClass('animated rotateIn'); //adds animation to restart button
     setTimeout(function(){
-        $('.fa-repeat').removeClass('animated rotateIn');
+        $('.fa-repeat').removeClass('animated rotateIn'); //removes animation so when it's clicked again the animation works
     },1000);
     restartGame();
 }));
@@ -150,18 +153,18 @@ function restartGame(){
 }
 
 //Pop-up - modal
-$('.modal').hide();
+$('.modal').hide(); //hides modal until game is won
 
 function youWon(){
-    setTimeout(function(){
+    setTimeout(function(){ 
     $('.modal').show();
     }, 1000);
     //obtain moves
-    $('.totalMove').html(moveNumber);
+    $('.totalMove').html(moveNumber); 
     //obtain stars
     totalStars = $('.stars').html()
     $('.starRating').html(totalStars);
-    //obtain final time
+    //stop timer and obtain final time
     clearInterval(counter);
     getTime = $('.timer').html();
     $('.finalTime').html(getTime);
