@@ -1,10 +1,5 @@
 # Wizard's Matching Game
 
-## Table of Contents
-* [Description](#Description)
-* [Instructions](#instructions)
-
-## Description
 The Wizard's matching game is a Harry Potter themed memory game. There are 8 pairs of cards on a deck arranged randomly and face down. The purpose of the game is for a player to find all 8 matches by flipping two cards at a time. A demo is available [here].(https://zuli89.github.io/memory-game/)
 
 ### Game Play
