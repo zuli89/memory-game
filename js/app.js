@@ -32,8 +32,6 @@ function shuffle(array) {
 
 //shuffle cards and add shuffled cards to deck//
 
-window.onload = shuffledDeck(), timer();
-
 function shuffledDeck() {
     shuffle(cardList); 
     for (i = 0; i <= cardList.length; i++) {
@@ -42,6 +40,7 @@ function shuffledDeck() {
     }
 }
 
+window.onload = shuffledDeck(), timer();
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -75,7 +74,7 @@ function matching() {
         matchedCards.push(openCards[0], openCards[1]); //add matched cards to an array
         openCards = [];
     } else noMatch();
-    if (matchedCards.length == 16){
+    if (matchedCards.length == 16) {
         youWon();
     }
 }
@@ -93,11 +92,11 @@ function noMatch() {
 //move counter*/
 let moveNumber = 0;
 
-function moveCount(){
+function moveCount() {
     moveNumber++;
     $('.moves').html(moveNumber);
     //star rating
-    if (moveNumber > 8 && moveNumber < 12) {
+    if (moveNumber > 8 && moveNumber <= 12) {
         $('.stars li:eq(1)').hide(); 
     } else if (moveNumber >= 18) {
         $('.stars li:eq(2)').hide(); 
@@ -106,10 +105,10 @@ function moveCount(){
 
 //timer
 function timer(){
-    card.on('click', (function(){ //trigers timer on
+    card.on('click', (function() { //trigers timer on click
         let startTime = new Date;
         counter = setInterval(function() {
-            $('.timer').html(function(){
+            $('.timer').html(function() {
                 count = (new Date - startTime)/1000; //compute time elapsed
                 secs = String(Math.round(count) % 60); //round time and restart when one minute has elapsed
                 mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
@@ -123,7 +122,6 @@ function timer(){
     ));
 }
 
-
 //reset game
 $('.restart').on('click', (function(){
     $('.fa-repeat').addClass('animated rotateIn');
@@ -136,7 +134,7 @@ $('.restart').on('click', (function(){
 function restartGame(){
     //flip cards
     card.removeClass('match open show pulse flipInY unclickable');
-    matchedCards =[];
+    matchedCards =[]; 
     openCards =[];
     //shuffle
     shuffledDeck();

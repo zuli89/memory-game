@@ -97,7 +97,6 @@ img {
 
 .deck .card.show img {
     visibility: visible;
-
 }
 
 .deck .card.match {
@@ -138,6 +137,7 @@ img {
     float: right;
     cursor: pointer;
 }
+
 .score-panel .timer {
     display: inline-block;
     width: 200px;
@@ -147,6 +147,7 @@ img {
 /*
 *modal
 */
+
 .shield {
     width: 10%;
 }
@@ -165,7 +166,6 @@ img {
     background-position: center; 
 }
 
-
 .modal-content {
     margin: 15% auto;
     padding: 20px;
@@ -175,7 +175,6 @@ img {
     font-weight: bold;
     color: black;
     text-shadow: none;
-   
 }
 
 .modal-content p span {
@@ -230,22 +229,28 @@ button:focus {outline:0;}
         width: 90%;
         min-height: 515px;
     }
+
     .deck .card {
         height: 100px;
         width: 100px;
     }
+
     .score-panel {
         font-size: 18px;
     }
+
 }
 
 @media screen and (max-width: 520px){
     .deck{
         width: 95%;
     }
+
     .score-panel {
         width: 370px;
+        font-weight: bolder;
     }
+
     .deck .card {
         height: 90px;
         width: 90px;
@@ -254,34 +259,38 @@ button:focus {outline:0;}
 }
 
 @media screen and (max-width: 455px){
-    .deck{
+    .deck {
         width: 95%;
         min-height: 450px;
     }
-    .deck .card{
+
+    .deck .card {
         height: 80px;
         width: 80px;
     }
-    .score-panel{
+
+    .score-panel {
         width: 300px;
         font-size: 15px;
     }
-    .score-panel .timer{
 
+    .score-panel .timer {
         width: 125px;
     }
 }
 
-@media screen and (max-width: 415px){
-    #banner{
+@media screen and (max-width: 415px) {
+    #banner {
         width: 300px;
     }
-    .deck{
+
+    .deck {
         width: 90%;
         min-height: 400px;
         padding: 20px;
     }
-    .deck .card{
+
+    .deck .card {
         height: 70px;
         width: 70px;
     }
@@ -307,7 +316,6 @@ button:focus {outline:0;}
     .modal {
         min-width: 70%;
     }
-
 }
 
 @media screen and (max-width: 675px) {
@@ -317,15 +325,18 @@ button:focus {outline:0;}
 }
 
 @media screen and (max-width: 450px) {
-    .modal-content{
+    .modal-content {
         font-size: 18px;
     }
-    button{
+
+    button {
         font-size: 16px;
     }
+
 }
+
 @media screen and (max-width: 375px) {
-    button{
+    button {
         font-size: 15px;
         padding: 2px 8px;
     }
