@@ -99,7 +99,7 @@ function moveCount(){
     //star rating
     if (moveNumber > 8 && moveNumber < 12) {
         $('.stars li:eq(1)').hide(); 
-    } else if (moveNumber >= 16) {
+    } else if (moveNumber >= 18) {
         $('.stars li:eq(2)').hide(); 
     }
 }

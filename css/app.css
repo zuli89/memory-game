@@ -34,14 +34,6 @@ body {
     flex-direction: column;
 }
 
-h1 {
-    font-family: 'Mountains of Christmas', sans-serif;
-    font-weight: 300;
-    font-size: 3.5em;
-    color: white;
-    text-align: center;
-}
-
 h2 {
     font-size: 1.2em;
     font-weight: bold;
@@ -77,7 +69,6 @@ h2 {
     background: url(../img/hogwarts.png) no-repeat center, url(../img/card-bg.png) no-repeat center;
     background-size: 80%, 100%;
     font-size: 0;
-   /* color: #ffffff;*/
     border-radius: 8px;
     cursor: pointer;
     display: flex;
@@ -88,7 +79,7 @@ h2 {
 
 img {
     width: 100%;
-    display:block;
+    display: block;
     margin: 0 auto;
     border-radius: 7px;
 }
@@ -104,16 +95,14 @@ img {
 
 }
 
-.deck .card.show img{
-    font-size: 33px;
+.deck .card.show img {
     visibility: visible;
 
 }
 
-.deck .card.match{
+.deck .card.match {
     cursor: default;
     background: #841313;
-    font-size: 33px;
     border: 3px solid #841313;
 }
 
@@ -129,7 +118,7 @@ img {
     text-align: left;
     width: 500px;
     margin-bottom: 10px;
-    font-size:22px;
+    font-size: 22px;
 }
 
 .score-panel .stars {
@@ -149,17 +138,17 @@ img {
     float: right;
     cursor: pointer;
 }
-.score-panel .timer{
+.score-panel .timer {
     display: inline-block;
     width: 200px;
-    text-align:center; 
+    text-align: center; 
 }
 
 /*
 *modal
 */
 .shield {
-    width:10%;
+    width: 10%;
 }
 
 .modal {
@@ -169,7 +158,6 @@ img {
     transform: translate(-50%, -50%);
     min-width: 40%;
     max-width: 80%;
-    height: 90%;
     /*background properties*/
     background: url(../img/light-parchment.png);
     background-size: contain;
@@ -315,6 +303,31 @@ button:focus {outline:0;}
 
 /* Modal responsive*/
 
+@media screen and (max-width: 950px) {
+    .modal {
+        min-width: 70%;
+    }
 
+}
 
+@media screen and (max-width: 675px) {
+    .modal {
+        min-width: 100%;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .modal-content{
+        font-size: 18px;
+    }
+    button{
+        font-size: 16px;
+    }
+}
+@media screen and (max-width: 375px) {
+    button{
+        font-size: 15px;
+        padding: 2px 8px;
+    }
+}
 
