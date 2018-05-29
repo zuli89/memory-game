@@ -156,9 +156,7 @@ function restartGame(){
 $('.modal').hide(); //hides modal until game is won
 
 function youWon(){
-    setTimeout(function(){ 
-    $('.modal').show();
-    }, 1000);
+    $('.modal').show(500);
     //obtain moves
     $('.totalMove').html(moveNumber); 
     //obtain stars
