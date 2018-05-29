@@ -73,6 +73,7 @@ function matching() {
         $(openCards[0]).removeClass('show open flipInY').addClass('match animated pulse');
         $(openCards[1]).removeClass('show open flipInY').addClass('match animated pulse');
         matchedCards.push(openCards[0], openCards[1]); //add matched cards to an array
+        $(matchedCards).addClass('unclickable');
         openCards = [];
     } else noMatch();
     if (matchedCards.length == 16) { //winning the game when all cards are matched
@@ -87,8 +88,7 @@ function noMatch() {
         $(openCards).removeClass('show open animated flipInY');
         card.removeClass('unclickable'); //remove class to enable event listener on clicks
         openCards = []; 
-    }, 1300);  
-    
+    }, 1300);
 }
 
 //move counter
