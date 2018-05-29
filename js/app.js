@@ -136,7 +136,7 @@ $('.restart').on('click', (function(){
 
 function restartGame(){
     //flip cards
-    card.removeClass('match open show pulse flipInY unclickable');
+    card.removeClass('match open show pulse flipInY unclickable animated');
     matchedCards =[]; 
     openCards =[];
     //shuffle
