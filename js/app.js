@@ -59,7 +59,7 @@ window.onload = shuffledDeck(), timer();
 
 $(document).on('click', '.card:not(.unclickable)', (function() {
     //flips card when clicked, avoids being able to double click on the same card on same turn
-    $(this).addClass('show open unclickable animated flipInY'); 
+    $(this).addClass('show open unclickable animated flipInY');
     openCards.push(this); //add card to openCards array
         if (openCards.length == 2) {
         moveCount();//call function to count a move after two cards are selected
@@ -99,7 +99,7 @@ function moveCount() {
     moveNumber++;
     $('.moves').html(moveNumber);
     //star rating
-    if (moveNumber > 8 && moveNumber <= 12) {
+    if (moveNumber > 8 && moveNumber < 13) {
         $('.stars li:eq(1)').hide(); 
     } else if (moveNumber >= 18) {
         $('.stars li:eq(2)').hide(); 
