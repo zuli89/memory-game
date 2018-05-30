@@ -341,3 +341,48 @@ button:focus {outline:0;}
         padding: 2px 8px;
     }
 }
+
+@media screen and (max-width: 665px) and (orientation: landscape){
+    .deck {
+        min-height: 80vh;
+        max-width: 50vw;
+    }
+    .deck .card{
+        height: 55px;
+        width: 55px;
+    }
+
+    #banner{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 665px) and (max-width: 780px) and (orientation: landscape){
+    .deck {
+        min-height: 80vh;
+        max-width: 40vw;
+    }
+    .deck .card{
+        height: 50px;
+        width: 50px;
+    }
+
+    #banner{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 780px) and (max-width: 840px) and (orientation: landscape){
+    .deck {
+        min-height: 80vh;
+        max-width: 40vw;
+    }
+    .deck .card{
+        height: 55px;
+        width: 55px;
+    }
+
+    #banner{
+        display: none;
+    }
+}
