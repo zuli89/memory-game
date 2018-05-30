@@ -107,6 +107,8 @@ function moveCount() {
 }
 
 //timer
+let counter;
+
 function timer() {
     card.on('click', (function() { //trigers timer on click
         let startTime = new Date;  //gets time and date of when first card is clicked
@@ -117,7 +119,7 @@ function timer() {
                 mins = String(Math.floor(count / 60)); // compute minutes based on seconds elapsed
                 M = mins.length < 2 ? '0' + mins : mins; 
                 S = secs.length < 2 ? '0' + secs : secs;   
-                return (M + ":" + S);
+                return (M + ":" + S);    
             }
         );}, 1000);
         card.off('click'); //removes event listener so time doesn't restart every time a card is clicked
@@ -134,6 +136,7 @@ $('.restart').on('click', (function(){
     restartGame();
 }));
 
+let clicks = 0;
 function restartGame(){
     //flip cards
     card.removeClass('match open show pulse flipInY unclickable animated');
@@ -144,7 +147,16 @@ function restartGame(){
     //reset timer
     $('.timer').html("00:00");
     clearInterval(counter);
-    timer();
+    //count clicks after restart
+    card.on('click',(function(event) { 
+        clicks++
+        console.log(clicks);
+    }));
+    // only restart timer if a card has been clicked
+    if (clicks >= 1) { 
+        timer();
+    }
+    clicks = 0;     //reset number of clicks
     //reset moves
     moveNumber = 0;
     $('.moves').html(moveNumber);
