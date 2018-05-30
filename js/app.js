@@ -165,10 +165,9 @@ function restartGame(){
 }
 
 //Pop-up - modal
-$('.modal').hide(); //hides modal until game is won
 
 function youWon(){
-    $('.modal').show(500);
+    $('.modal').css("visibility", "visible");
     //obtain moves
     $('.totalMove').html(moveNumber); 
     //obtain stars

@@ -159,6 +159,7 @@ img {
     transform: translate(-50%, -50%);
     min-width: 40%;
     max-width: 80%;
+    visibility: hidden;
     /*background properties*/
     background: url(../img/light-parchment.png);
     background-size: contain;
