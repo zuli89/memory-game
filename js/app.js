@@ -136,7 +136,7 @@ $('.restart').on('click', (function(){
     restartGame();
 }));
 
-let clicks = 0;
+let clicks;
 function restartGame(){
     //flip cards
     card.removeClass('match open show pulse flipInY unclickable animated');
@@ -153,7 +153,7 @@ function restartGame(){
         console.log(clicks);
     }));
     // only restart timer if a card has been clicked
-    if (clicks >= 1) { 
+    if (clicks !== 0) { 
         timer();
     }
     clicks = 0;     //reset number of clicks
@@ -179,11 +179,11 @@ function youWon(){
     $('.finalTime').html(getTime);
     //restart game
     $('#play').on('click', (function(){
-        $('.modal').hide();
+        $('.modal').css("visibility", "hidden");
         restartGame();
     }));
     //close window
     $('#close-window').on('click', (function() {
-        $('.modal').hide();
+        $('.modal').css("visibility", "hidden");
     }));  
 }
